@@ -4,7 +4,7 @@
 
 ## 🖥️ Projeto
 
-Projeto Web Responsivo capsula do tempo para exibir memórias em uma linha do tempo.
+Projeto Web Responsivo Cápsula do Tempo para exibir memórias em uma linha do tempo.
 
 ## 🚀 Tecnologias
 

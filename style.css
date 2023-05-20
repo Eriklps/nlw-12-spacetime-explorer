@@ -1,0 +1,156 @@
+* {
+    margin: 0; /* espaçamento interno */
+    padding: 0; /* espaçamento externo */
+    box-sizing: border-box; /* fixa as dimensoes das bordas das caixas */
+}
+
+:root {
+    font-size: 16px;
+}
+
+::-webkit-scrollbar { /* webkit - renderiza e modifica os elementos do navegador */
+    width: 8px; /* define a largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-track { /* track - caminho por onde a barra percorre */
+    background-color: #2c2c31;
+}
+
+::-webkit-scrollbar-thumb { /* thumb - barra do scroll */
+    background-color: #9e9ea0;
+}
+
+@keyframes entering { /* edita quadro a quadro da animação */
+    from { 
+        opacity: 0; 
+        transform: translateY(-200px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+
+}
+
+body {
+    background-color: #121215; /* cor do fundo */
+    color: #EAEAEA; /* cor do texto */
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+    grid-template-areas: "profile timeline"; /* define a quantidade e nome das areas */
+    grid-template-columns: 1fr 1fr; /*  define as colunas no display grid */
+    grid-template-rows: 100vh; /* define largura das linhas */
+}
+
+nav {
+    padding: 64px; /* distancia entre conteudo e bordas */
+    grid-area: timeline;
+    overflow-y: scroll; /* habilita o scroll quando o conteudo excede a pagina */
+    animation: entering 0.7s ease-in-out;
+}
+
+.memory {
+    display: flex; /* torna os elementos flexiveis */
+    flex-direction: column; /* organiza os elementos em coluna */
+    gap: 16px; /* espacamento entre os elementos */
+    text-decoration: none; /* remove underline do texto */
+    margin-bottom: 64px;
+}
+
+.memory small {
+    color: #BEBEBF;
+    font-size: 0.75rem; /* tamanho da fonte */
+}
+
+.memory h1 {
+    color: #BEBEBF;
+    font-size: 2rem;
+}
+
+.memory img {
+    width: 100%; /* largura */
+    height: 280px; /* altura */
+    object-fit: cover; /* mantem a proporcao da imagem */
+    border-radius: 8px; /* arrendondamento das bordas */
+    transition: transform 0.3s ease-in-out; /* diminui a velocidade da transicao de zoom da imagem */
+}
+
+.memory div {
+    width: 100%;
+    height: 280px;
+    overflow: hidden; /* esconde o conteudo excedente */
+    border-radius: 8px;
+}
+
+.memory img:hover {
+    transform: scale(1.1);
+}
+
+.memory p {
+    font-size: 1.2rem;
+    color: #BEBEBF;
+    line-height: 28px; /* espaçamento entre linhas */
+}
+
+aside {
+    grid-area: profile; /* seleciona a area do grid que sera utilizada */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid; /* adiciona borda */
+    border-image: linear-gradient(#727275, #2c2c31) 1; /* efeito gradiente p borda */
+    gap: 20px; /* distanciamento vertical entre itens */
+    background-image: url("./assets/background.svg"); /* adiciona imagem de fundo */
+    background-position: top right; /* define a posiçãoo do background */
+    background-repeat: no-repeat; /* definicoes sobre repeticao do background */
+    background-size: auto 100; /* ajusta o background */
+}
+
+aside * { /* o * seleciona todos elementos dentro do aside */
+    animation: entering 0.7s ease-in-out;
+}
+
+aside img:nth-child(2) { /*nth-child seleciona a imagem desejada */
+    width: 160px;
+    height: 160px;
+    border-radius: 50%; /* arredonda a borda da imagem */
+    border: 4px solid transparent; /* definicoes da borda */
+    background: linear-gradient(#d39233, #ed5636, #633bbc) padding-box,
+    linear-gradient(260deg, #d39233, #ed5636, #633bbc) border-box; /* efeito gradient */
+}
+
+aside p {
+    font-size: 2rem;
+    text-align: center;
+}
+
+aside span {
+    font-size: 0.75rem;
+    color: #9e9ea0;
+}
+
+@media (max-width: 768px){
+    :root {
+        font-size: 14px;
+    }
+
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 0.8fr;
+        grid-template-areas: 
+        "profile"
+        "timeline";
+    }
+
+    aside {
+        border-right: none;
+        padding: 32px 12px;
+    }
+
+    nav {
+        overflow-y: visible;
+        padding: 22px;
+    }
+}
+

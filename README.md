@@ -12,7 +12,6 @@ Projeto desenvolvido durante o NLW da Rocketseat com as seguintes tecnologias:
 
 - HTML
 - CSS
-- Git e Github
 
 ## 🏷️ Layout
 
